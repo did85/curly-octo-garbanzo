@@ -37,6 +37,10 @@ class Classifier(object):
 # test code
 if __name__ == "__main__":
     classifier = Classifier()
-    classifier.predict('dragonfly/dragonfly1.jpeg')
-    classifier.predict('dragonfly/dragonfly2.jpeg')
-    classifier.predict('dragonfly/dragonfly3.jpeg')
+    # classifier.predict('dragonfly/dragonfly1.jpeg')
+    # classifier.predict('dragonfly/dragonfly2.jpeg')
+    # classifier.predict('dragonfly/dragonfly3.jpeg')
+    classifier.predict('granulate_ambrosia_beetle/0001.jpg')
+    classifier.predict('granulate_ambrosia_beetle/0002.jpg')
+    classifier.predict('granulate_ambrosia_beetle/0003.jpg')
+    classifier.predict('granulate_ambrosia_beetle/0005.jpg')
