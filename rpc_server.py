@@ -3,9 +3,10 @@ from xmlrpc.server import SimpleXMLRPCServer
 import xmlrpc.client
 import io
 import json
+import sys
 
-
-image_classifier = Classifier()
+model_type = sys.argv[1]
+image_classifier = Classifier(model_type)
 
 fp = open('config.json', 'r')
 server_config = json.load(fp)
