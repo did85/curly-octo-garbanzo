@@ -36,13 +36,13 @@ train_generator = datagen.flow_from_directory(
         'data/train',
         target_size=(224, 224),
         batch_size=batch_size,
-        class_mode=None,  # this means our generator will only yield batches of data, no labels
+        class_mode='binary',  # this means our generator will only yield batches of data, no labels
         shuffle=False)
 
 bottleneck_features_train = model.predict_generator(
-        train_generator, nb_train_samples // batch_size)
+        train_generator, (nb_train_samples // batch_size))
 
-np.save('bottleneck_features_train', bottleneck_features_train)
+np.save('bottleneck_features_train_da', bottleneck_features_train)
 
 
 validation_generator = datagen.flow_from_directory(
@@ -80,8 +80,9 @@ model.compile(optimizer='rmsprop',
               loss='binary_crossentropy', metrics=['accuracy'])
 
 model.fit(train_data, train_labels,
-          epochs=30,
+          epochs=100,
           batch_size=batch_size,
           validation_data=(validation_data, validation_labels))
-## model.save_weights('top_fc_weights')
-model.save('cm_pest')
+model.save_weights('top_fc_weights_pcm')
+
+## model.save('cm_pest')
