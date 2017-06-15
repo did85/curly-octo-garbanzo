@@ -1,0 +1,7 @@
+.idea/
+__pycache__/
+data/
+weights/
+*.pyc
+model.png
+test.py
